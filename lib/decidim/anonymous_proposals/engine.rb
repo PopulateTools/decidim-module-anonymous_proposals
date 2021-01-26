@@ -16,7 +16,7 @@ module Decidim
       end
 
       initializer "decidim_anonymous_proposals.assets" do |app|
-        app.config.assets.precompile += %w[decidim_anonymous_proposals_manifest.js decidim_anonymous_proposals_manifest.css]
+        app.config.assets.precompile += %w(decidim_anonymous_proposals_manifest.js decidim_anonymous_proposals_manifest.css)
       end
     end
   end
