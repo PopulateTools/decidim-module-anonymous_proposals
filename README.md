@@ -11,7 +11,7 @@ groups in organizations explained in Installation section.
 Add this line to your application's Gemfile:
 
 ```ruby
-gem "decidim-anonymous_proposals", git: "https://github.com/PopulateTools/decidim-module-anonymous_proposals"
+gem "decidim-anonymous_proposals", git: "https://github.com/PopulateTools/decidim-module-anonymous_proposals", branch: :main
 
 ```
 
