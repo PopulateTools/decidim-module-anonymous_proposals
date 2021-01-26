@@ -11,8 +11,8 @@ module Decidim
       def proposal_draft
         return unless signed_in?
 
-        Proposal.from_all_author_identities(current_user).not_hidden.only_amendables
-                .where(component: current_component).find_by(published_at: nil)
+        Decidim::Proposals::Proposal.from_all_author_identities(current_user).not_hidden.only_amendables
+                                    .where(component: current_component).find_by(published_at: nil)
       end
     end
   end
