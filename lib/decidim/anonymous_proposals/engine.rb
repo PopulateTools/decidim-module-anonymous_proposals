@@ -2,6 +2,7 @@
 
 require "rails"
 require "decidim/core"
+require "deface"
 
 module Decidim
   module AnonymousProposals
