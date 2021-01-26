@@ -30,6 +30,7 @@ module Decidim
         end
 
         Decidim::Proposals::ProposalsController.class_eval do
+          prepend Decidim::AnonymousProposals::ProposalsControllerOverrides
           include Decidim::AnonymousProposals::ProposalsControllerAdditions
         end
       end
