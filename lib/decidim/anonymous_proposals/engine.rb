@@ -33,6 +33,10 @@ module Decidim
           prepend Decidim::AnonymousProposals::ProposalsControllerOverrides
           include Decidim::AnonymousProposals::ProposalsControllerAdditions
         end
+
+        Decidim::UserGroups::ManageableUserGroups.class_eval do
+          prepend Decidim::AnonymousProposals::ManageableUserGroupsOverrides
+        end
       end
     end
   end
