@@ -24,6 +24,14 @@ module Decidim
         Decidim::UserGroup.class_eval do
           include Decidim::AnonymousProposals::HasAnonymous
         end
+
+        Decidim::Proposals::Permissions.class_eval do
+          prepend Decidim::AnonymousProposals::PermissionsOverrides
+        end
+
+        Decidim::Proposals::ProposalsController.class_eval do
+          include Decidim::AnonymousProposals::ProposalsControllerAdditions
+        end
       end
     end
   end
