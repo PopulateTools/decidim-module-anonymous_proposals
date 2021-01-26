@@ -37,6 +37,18 @@ module Decidim
         Decidim::UserGroups::ManageableUserGroups.class_eval do
           prepend Decidim::AnonymousProposals::ManageableUserGroupsOverrides
         end
+
+        Decidim::Proposals::CreateProposal.class_eval do
+          prepend Decidim::AnonymousProposals::CreateProposalCommandOverrides
+        end
+
+        Decidim::Proposals::UpdateProposal.class_eval do
+          prepend Decidim::AnonymousProposals::UpdateProposalCommandOverrides
+        end
+
+        Decidim::Proposals::PublishProposal.class_eval do
+          prepend Decidim::AnonymousProposals::PublishProposalCommandOverrides
+        end
       end
     end
   end
