@@ -6,7 +6,7 @@ eu:
       register: Erregistratu
       shared:
         anonymous_proposals_announcement:
-          text_html: "<p><strong>%{registration_link} edo plataforman %{new_session_like}
+          text_html: "<p><strong>%{registration_link} edo plataforman %{new_session_link}
             prozesu partizipatiboari buruz sarrera berririk ez galtzeko</strong>.
             Behin izena emanda, zure proposamena egitean beste partehartzaileak jarraitu
             ahal izango dituzu eta haiekin elkarri eragin. Gainera, proposamen bakoitzari
