@@ -1,6 +1,27 @@
 ---
 en:
   decidim:
+    anonymous_proposals:
+      new_session: sign in
+      register: Register
+      shared:
+        anonymous_proposals_announcement:
+          text_html: "<p><strong> %{registration_link} or %{new_session_link} on the
+            platform to not miss any news of the participatory process</strong>. If
+            you publish your proposal as registered user, you will be able to follow
+            other participants and interact with them, comment and participate in
+            the exchange of opinions of each proposal, and show your support or interest
+            by adhering to the proposals that you consider. You can also decide whether
+            to receive notifications every time someone supports or comments on your
+            proposal. In addition, you will have the option of receiving a newsletter
+            with all the updates.</p> <p><em>“But I don't want my name to be recognized”</em>:
+            In this case, you can register with an anonymous identity with which to
+            publish your proposal and with all the advantages of being registered
+            on the platform.</p>"
+        anonymous_proposals_new_announcement:
+          text_html: "<p>Do you want other participants to follow you and comment
+            on your proposal?<strong> %{registration_link} or %{new_session_link}
+            on the platform</strong>.</p>"
     components:
       anonymous_proposals:
         name: AnonymousProposals
