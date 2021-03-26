@@ -1,0 +1,26 @@
+---
+eu:
+  decidim:
+    anonymous_proposals:
+      new_session: saioa hasi
+      register: Erregistratu
+      shared:
+        anonymous_proposals_announcement:
+          text_html: "<p><strong>%{registration_link} edo plataforman %{new_session_like}
+            prozesu partizipatiboari buruz sarrera berririk ez galtzeko</strong>.
+            Behin izena emanda, zure proposamena egitean beste partehartzaileak jarraitu
+            ahal izango dituzu eta haiekin elkarri eragin. Gainera, proposamen bakoitzari
+            buruz zure iritzia partekatu dezakezu, eta zure interesekoak diren proposamenak
+            babestu. Horrez gain, zure proposamena komentariorik edo babesik jasotzekotan
+            ohartarazpenak bidaltzeko aukera daukazu. Bestalde, newsletter bat jasotzeko
+            aukera izango duzu eguneratze guztiekin.</p> <p><em>“PBaina ez dut nire
+            izena ezagutaraztea nahi”</em>: Kasu horretan, identitate anonimo batekin
+            izena eman dezakezu eta zure proposamena horrela aurkeztu, plataformako
+            abantaila guztiak aprobetxatuz.</p>"
+        anonymous_proposals_new_announcement:
+          text_html: "<p>Nahi duzu beste parte-hartzaile batzuek zuri jarraitzea eta
+            zure proposamena komentatzea? <strong>%{registration_link} edo %{new_session_link}
+            plataforman</strong>.</p>"
+    components:
+      anonymous_proposals:
+        name: AnonymousProposals

@@ -1,0 +1,4 @@
+<!-- insert_before "h2" -->
+<% if @step == :step_1 %>
+  <%= render partial: "decidim/anonymous_proposals/shared/anonymous_proposals_new_announcement" %>
+<% end %>

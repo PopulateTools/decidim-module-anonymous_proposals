@@ -1,0 +1,26 @@
+---
+es:
+  decidim:
+    anonymous_proposals:
+      new_session: inicia sesión
+      register: Regístrate
+      shared:
+        anonymous_proposals_announcement:
+          text_html: "<p><strong>%{registration_link} o %{new_session_link} en la
+            plataforma para no perderte ninguna novedad del proceso participativo</strong>.
+            Si publicas tu propuesta estando registrado podrás seguir a otros participantes
+            e interactuar con ellos, comentar y participar en los intercambios de
+            opiniones de cada propuesta, y mostrar tu apoyo o interés adhiriéndote
+            a las propuestas que consideres. También podrás decidir si recibir avisos
+            cada vez que alguien apoye o comente tu propuesta. Además, tendrás la
+            opción de recibir una newsletter con todas las actualizaciones.</p> <p><em>“Pero
+            no quiero que se reconozca mi nombre”</em>: En ese caso, puedes registrarte
+            con una identidad anónima con la que publicar tu propuesta y con todas
+            las ventajas de estar registrado en la plataforma.</p>"
+        anonymous_proposals_new_announcement:
+          text_html: "<p>¿Quieres que otros participantes puedan seguirte y comentar
+            tu propuesta? <strong>%{registration_link} o %{new_session_link} en la
+            plataforma</strong>.</p>"
+    components:
+      anonymous_proposals:
+        name: AnonymousProposals
