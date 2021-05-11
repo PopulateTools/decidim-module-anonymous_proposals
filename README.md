@@ -2,7 +2,7 @@
 
 Transform proposals component to allow not signed in users creation of
 proposals. For this the proposals created anonymously will be linked with
-a special anonymous users group. There is a taksk to create/update anonymous
+a special anonymous users group. There is a task to create/update anonymous
 groups in organizations explained in Installation section.
 
 
