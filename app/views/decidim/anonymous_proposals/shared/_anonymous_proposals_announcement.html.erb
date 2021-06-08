@@ -1,10 +1,12 @@
 <% unless user_signed_in? %>
-  <%= cell(
-    "decidim/announcement",
-    I18n.locale => t(
-      ".text_html",
-      registration_link: link_to(t("register", scope: "decidim.anonymous_proposals"), decidim.new_user_registration_path, target: "_blank", class: "external-link-container"),
-      new_session_link: link_to(t("new_session", scope: "decidim.anonymous_proposals"), decidim.new_user_session_path, target: "_blank", class: "external-link-container")
-    )
-  ) %>
+  <% if current_settings.creation_enabled && !user_signed_in? && component_settings.anonymous_proposals_enabled? %>
+    <%= cell(
+      "decidim/announcement",
+      I18n.locale => t(
+        ".text_html",
+        registration_link: link_to(t("register", scope: "decidim.anonymous_proposals"), decidim.new_user_registration_path, target: "_blank", class: "external-link-container"),
+        new_session_link: link_to(t("new_session", scope: "decidim.anonymous_proposals"), decidim.new_user_session_path, target: "_blank", class: "external-link-container")
+      )
+    ) %>
+  <% end %>
 <% end %>
