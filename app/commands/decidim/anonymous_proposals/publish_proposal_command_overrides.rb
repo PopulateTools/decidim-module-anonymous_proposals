@@ -8,7 +8,18 @@ module Decidim
 
       def initialize(proposal, current_user)
         @proposal = proposal
-        @current_user = current_user || Decidim::UserGroup.where(organization: proposal.organization).anonymous.first
+        @current_user = current_user
+        @current_user ||= anonymous_group if allow_anonymous_proposals?
+      end
+
+      private
+
+      def anonymous_group
+        Decidim::UserGroup.where(organization: @proposal.organization).anonymous.first
+      end
+
+      def allow_anonymous_proposals?
+        @proposal.component.settings.anonymous_proposals_enabled?
       end
     end
   end
