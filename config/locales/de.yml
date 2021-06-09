@@ -1,0 +1,30 @@
+---
+de:
+  decidim:
+    anonymous_proposals:
+      new_session: loggen Sie sich ein
+      register: Registrieren Sie sich
+      shared:
+        anonymous_proposals_announcement:
+          text_html: "<p><strong> %{registration_link} oder %{new_session_link} damit Sie
+            keine Neuigkeiten des Prozesses verpassen</strong>. Wenn Sie Ihren Vorschlag
+            als registrierten Benutzer veröffentlichen, können Sie anderen Teilnehmern folgen,
+            mit ihnen interagieren, bei allen Vorschlägen kommentieren, am
+            Meinungsaustausch teilnehmen und Ihre Unterstützung für Vorschläge zeigen.
+            Sie können auch entscheiden, ob Sie Benachrichtigungen empfangen wollen wenn
+            jemand ihren Vorschlag unterstützt oder kommentiert. Zusätzlich haben Sie die
+            Möglichkeit, einen Newsletter mit allen Updates zu bekommen.</p> <p><em>“Aber
+            ich möchte nicht dass mein Name erkannt wird”</em>:
+            In diesem Fall können Sie sich mit einem Decknamen registrieren, unter dem Sie
+            Ihren Vorschlag veröffentlichen. So können Sie dennoch alle Vorteile einer
+            Registrierung auf der Plattform geniessen.</p>"
+        anonymous_proposals_new_announcement:
+          text_html: "<p>Möchten Sie dass andere Teilnehmer ihnen folgen und auf Ihren
+            Vorschlag kommentieren? <strong>%{registration_link} oder %{new_session_link}</strong>.</p>"
+    components:
+      proposals:
+        settings:
+          global:
+            anonymous_proposals_enabled: Anonyme Benutzer können Vorschläge erstellen
+      anonymous_proposals:
+        name: AnonymousProposals
