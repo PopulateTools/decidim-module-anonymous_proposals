@@ -22,9 +22,9 @@ de:
           text_html: "<p>Möchten Sie dass andere Teilnehmer ihnen folgen und auf Ihren
             Vorschlag kommentieren? <strong>%{registration_link} oder %{new_session_link}</strong>.</p>"
     components:
+      anonymous_proposals:
+        name: AnonymousProposals
       proposals:
         settings:
           global:
             anonymous_proposals_enabled: Anonyme Benutzer können Vorschläge erstellen
-      anonymous_proposals:
-        name: AnonymousProposals

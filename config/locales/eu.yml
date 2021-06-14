@@ -24,3 +24,7 @@ eu:
     components:
       anonymous_proposals:
         name: AnonymousProposals
+      proposals:
+        settings:
+          global:
+            anonymous_proposals_enabled: Erabiltzaile anonimoei proposamenak sortzea baimendu

@@ -24,3 +24,7 @@ es:
     components:
       anonymous_proposals:
         name: AnonymousProposals
+      proposals:
+        settings:
+          global:
+            anonymous_proposals_enabled: Permitir la creación de propuestas a usuarios anónimos
