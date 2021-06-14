@@ -1,4 +1,4 @@
-<% unless user_signed_in? %>
+<% if current_settings.creation_enabled && !user_signed_in? && component_settings.anonymous_proposals_enabled? %>
   <%= cell(
     "decidim/announcement",
     I18n.locale => t(

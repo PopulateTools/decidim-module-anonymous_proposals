@@ -7,10 +7,14 @@ module Decidim
       extend ActiveSupport::Concern
 
       included do
-        skip_before_action :authenticate_user!, if: :anonymous_group_present?
+        skip_before_action :authenticate_user!, if: :allow_anonymous_proposals?
       end
 
       private
+
+      def allow_anonymous_proposals?
+        anonymous_group_present? && component_settings.anonymous_proposals_enabled?
+      end
 
       def anonymous_group_present?
         Decidim::UserGroup.where(organization: current_organization).anonymous.exists?

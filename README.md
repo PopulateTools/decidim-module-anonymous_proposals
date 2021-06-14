@@ -5,6 +5,10 @@ proposals. For this the proposals created anonymously will be linked with
 a special anonymous users group. There is a task to create/update anonymous
 groups in organizations explained in Installation section.
 
+The creation of anonymous proposals can be disabled for each proposals
+component individually. Once you have installed this module and added an
+anonymous group, anonymous proposals will be enabled by default on all
+proposal components.
 
 ## Installation
 

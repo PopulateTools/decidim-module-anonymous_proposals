@@ -23,5 +23,9 @@ en:
             on your proposal?<strong> %{registration_link} or %{new_session_link}
             on the platform</strong>.</p>"
     components:
+      proposals:
+        settings:
+          global:
+            anonymous_proposals_enabled: Allow anonymous users to create proposals
       anonymous_proposals:
         name: AnonymousProposals

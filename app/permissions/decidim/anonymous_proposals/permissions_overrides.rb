@@ -28,7 +28,11 @@ module Decidim
       private
 
       def user_or_anonymous_action?(permission_action)
-        user || [:create, :edit].include?(permission_action.action) && Decidim::UserGroup.where(organization: organization).anonymous.exists?
+        user || [:create, :edit].include?(permission_action.action) && allow_anonymous_proposals?
+      end
+
+      def allow_anonymous_proposals?
+        Decidim::UserGroup.where(organization: organization).anonymous.exists? && component_settings.anonymous_proposals_enabled?
       end
 
       def organization

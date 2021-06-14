@@ -16,6 +16,13 @@ module Decidim
         # root to: "anonymous_proposals#index"
       end
 
+      initializer "decidim_anonymous_proposals.proposal_component_settings" do
+        component = Decidim.find_component_manifest(:proposals)
+        component.settings(:global) do |settings|
+          settings.attribute :anonymous_proposals_enabled, type: :boolean, default: true
+        end
+      end
+
       initializer "decidim_anonymous_proposals.assets" do |app|
         app.config.assets.precompile += %w(decidim_anonymous_proposals_manifest.js decidim_anonymous_proposals_manifest.css)
       end
