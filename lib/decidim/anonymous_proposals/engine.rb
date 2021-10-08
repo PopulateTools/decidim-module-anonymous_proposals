@@ -23,10 +23,6 @@ module Decidim
         end
       end
 
-      initializer "decidim_anonymous_proposals.assets" do |app|
-        app.config.assets.precompile += %w(decidim_anonymous_proposals_manifest.js decidim_anonymous_proposals_manifest.css)
-      end
-
       initializer "decidim_anonymous_proposals.proposals_additions" do
         Decidim::UserGroup.class_eval do
           include Decidim::AnonymousProposals::HasAnonymous
