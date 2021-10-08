@@ -1,10 +1,12 @@
 # frozen_string_literal: true
 
+DECIDIM_VERSION = ">= 0.25.0"
+
 source "https://rubygems.org"
 
 ruby RUBY_VERSION
 
-gem "decidim", ">= 0.24"
+gem "decidim", DECIDIM_VERSION
 gem "decidim-anonymous_proposals", path: "."
 
 gem "bootsnap", "~> 1.4"
@@ -14,7 +16,7 @@ gem "uglifier", "~> 4.1"
 group :development, :test do
   gem "byebug", "~> 11.0", platform: :mri
 
-  gem "decidim-dev", ">= 0.24"
+  gem "decidim-dev", DECIDIM_VERSION
 end
 
 group :development do
