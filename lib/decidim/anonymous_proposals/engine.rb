@@ -24,33 +24,35 @@ module Decidim
       end
 
       initializer "decidim_anonymous_proposals.proposals_additions" do
-        Decidim::UserGroup.class_eval do
-          include Decidim::AnonymousProposals::HasAnonymous
-        end
+        config.to_prepare do
+          Decidim::UserGroup.class_eval do
+            include Decidim::AnonymousProposals::HasAnonymous
+          end
 
-        Decidim::Proposals::Permissions.class_eval do
-          prepend Decidim::AnonymousProposals::PermissionsOverrides
-        end
+          Decidim::Proposals::Permissions.class_eval do
+            prepend Decidim::AnonymousProposals::PermissionsOverrides
+          end
 
-        Decidim::Proposals::ProposalsController.class_eval do
-          prepend Decidim::AnonymousProposals::ProposalsControllerOverrides
-          include Decidim::AnonymousProposals::ProposalsControllerAdditions
-        end
+          Decidim::Proposals::ProposalsController.class_eval do
+            prepend Decidim::AnonymousProposals::ProposalsControllerOverrides
+            include Decidim::AnonymousProposals::ProposalsControllerAdditions
+          end
 
-        Decidim::UserGroups::ManageableUserGroups.class_eval do
-          prepend Decidim::AnonymousProposals::ManageableUserGroupsOverrides
-        end
+          Decidim::UserGroups::ManageableUserGroups.class_eval do
+            prepend Decidim::AnonymousProposals::ManageableUserGroupsOverrides
+          end
 
-        Decidim::Proposals::CreateProposal.class_eval do
-          prepend Decidim::AnonymousProposals::CreateProposalCommandOverrides
-        end
+          Decidim::Proposals::CreateProposal.class_eval do
+            prepend Decidim::AnonymousProposals::CreateProposalCommandOverrides
+          end
 
-        Decidim::Proposals::UpdateProposal.class_eval do
-          prepend Decidim::AnonymousProposals::UpdateProposalCommandOverrides
-        end
+          Decidim::Proposals::UpdateProposal.class_eval do
+            prepend Decidim::AnonymousProposals::UpdateProposalCommandOverrides
+          end
 
-        Decidim::Proposals::PublishProposal.class_eval do
-          prepend Decidim::AnonymousProposals::PublishProposalCommandOverrides
+          Decidim::Proposals::PublishProposal.class_eval do
+            prepend Decidim::AnonymousProposals::PublishProposalCommandOverrides
+          end
         end
       end
     end
