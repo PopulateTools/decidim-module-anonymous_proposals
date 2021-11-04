@@ -4,11 +4,11 @@ module Decidim
   # This holds the decidim-meetings version.
   module AnonymousProposals
     def self.version
-      "0.1"
+      "0.24.3"
     end
 
     def self.decidim_version
-      ">= 0.24.0"
+      "0.24.3"
     end
   end
 end
