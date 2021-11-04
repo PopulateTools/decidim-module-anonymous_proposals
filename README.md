@@ -14,9 +14,14 @@ proposal components.
 
 Add this line to your application's Gemfile:
 
+For Decidim 0.25:
 ```ruby
-gem "decidim-anonymous_proposals", git: "https://github.com/PopulateTools/decidim-module-anonymous_proposals", branch: :main
+gem "decidim-anonymous_proposals", git: "https://github.com/PopulateTools/decidim-module-anonymous_proposals", branch: "release/0.25-stable"
+```
 
+For Decidim 0.24:
+```ruby
+gem "decidim-anonymous_proposals", git: "https://github.com/PopulateTools/decidim-module-anonymous_proposals", branch: "release/0.24-stable"
 ```
 
 And then execute:
