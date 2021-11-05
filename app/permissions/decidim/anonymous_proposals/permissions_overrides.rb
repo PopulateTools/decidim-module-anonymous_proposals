@@ -38,6 +38,14 @@ module Decidim
       def organization
         @organization ||= context.fetch(:organization, nil) || context.fetch(:current_organization, nil)
       end
+
+      def can_edit_proposal?
+        toggle_allow(proposal && (proposal.editable_by?(user) || anonymously_editable?))
+      end
+
+      def anonymously_editable?
+        allow_anonymous_proposals? && proposal.editable_by?(Decidim::UserGroup.where(organization: organization).anonymous.first)
+      end
     end
   end
 end
