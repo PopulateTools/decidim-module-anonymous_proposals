@@ -1,8 +1,8 @@
 PATH
   remote: .
   specs:
-    decidim-anonymous_proposals (0.25.1)
-      decidim-core (= 0.25.1)
+    decidim-anonymous_proposals (0.25.2)
+      decidim-core (>= 0.25.0)
       deface (~> 1.5)
 
 GEM
