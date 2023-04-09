@@ -9,7 +9,7 @@ namespace :decidim_anonymous_proposals do
       if Decidim::UserGroup.where(organization: organization).anonymous.exists? && (update_args = args.to_h.slice(:name, :nickname, :email)).present?
         Decidim::UserGroup.where(organization: organization).anonymous.first.update(update_args)
       else
-        Decidim::UserGroup.where(organization: organization).create(
+        Decidim::UserGroup.where(organization: organization).create!(
           name: args.name || "Anonymous",
           nickname: args.nickname || "anonymous",
           email: args.email || "anonymous@example.org",
