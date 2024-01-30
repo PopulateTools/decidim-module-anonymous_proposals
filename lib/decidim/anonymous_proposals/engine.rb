@@ -33,6 +33,10 @@ module Decidim
             prepend Decidim::AnonymousProposals::PermissionsOverrides
           end
 
+          Decidim::Proposals::ProposalsHelper.class_eval do
+            include Decidim::AnonymousProposals::UserGroupHelper
+          end
+
           Decidim::Proposals::ProposalsController.class_eval do
             prepend Decidim::AnonymousProposals::ProposalsControllerOverrides
             include Decidim::AnonymousProposals::ProposalsControllerAdditions
