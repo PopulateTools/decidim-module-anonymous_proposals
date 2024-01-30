@@ -19,7 +19,7 @@ module Decidim
       initializer "decidim_anonymous_proposals.proposal_component_settings" do
         component = Decidim.find_component_manifest(:proposals)
         component.settings(:global) do |settings|
-          settings.attribute :anonymous_proposals_enabled, type: :boolean, default: true
+          settings.attribute :anonymous_proposals_enabled, type: :boolean, default: false
         end
       end
 
