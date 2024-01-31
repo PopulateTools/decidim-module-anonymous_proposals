@@ -6,29 +6,33 @@ $(() => {
 
   const titleStoreId = `new_proposal:title:${currentComponentId}`;
   const bodyStoreId = `new_proposal:body:${currentComponentId}`;
+  const bodyEditorStoreId = `new_proposal:body_editor:${currentComponentId}`;
   const $form = $("form.new_proposal");
 
   if (!$form.length) {
     window.localStorage.removeItem(titleStoreId);
     window.localStorage.removeItem(bodyStoreId);
+    window.localStorage.removeItem(bodyEditorStoreId);
     return;
   } else {
-    const titleStored = window.localStorage.getItem(titleStoreId);
-    const bodyStored = window.localStorage.getItem(bodyStoreId);
-
     const $title = $form.find("#proposal_title");
     const $body = $form.find("#proposal_body");
+    const editorContainer = document.querySelector(".editor-container");
+    const editor = editorContainer ? Quill.find(editorContainer) : null;
+
+    const titleStored = window.localStorage.getItem(titleStoreId);
+    const bodyStored = editor ? window.localStorage.getItem(bodyEditorStoreId) : window.localStorage.getItem(bodyStoreId);
 
     const save = () => {
       const titleVal = $title.val();
-      const bodyVal = $body.val();
+      const bodyVal = editor ? JSON.stringify(editor.getContents()) : $body.val();
 
       if (titleVal.length > 0) {
-        window.localStorage.setItem(titleStoreId, $title.val());
+        window.localStorage.setItem(titleStoreId, titleVal);
       }
 
-      if (bodyVal.length > 0) {
-        window.localStorage.setItem(bodyStoreId, $body.val());
+      if(bodyVal.length > 0) {
+        editor ? window.localStorage.setItem(bodyEditorStoreId, bodyVal) : window.localStorage.setItem(bodyStoreId, bodyVal);
       }
     }
 
@@ -39,7 +43,7 @@ $(() => {
     }
 
     if(bodyStored) {
-      $body.val(bodyStored);
+      editor ? editor.setContents(JSON.parse(bodyStored)) : $body.val(bodyStored);
     } else {
       save();
     }
@@ -48,13 +52,19 @@ $(() => {
       save();
     });
 
-    $body.on("change", () => {
-      save();
-    });
+    if (editor) {
+      editor.on(Quill.events.TEXT_CHANGE, (delta, source) => {
+        save();
+      });
+    }  else {
+      $body.on("change", () => {
+        save();
+      });
+    }
 
     $form.on("formvalid.zf.abide", function() {
       window.localStorage.removeItem(titleStoreId);
-      window.localStorage.removeItem(bodyStoreId);
+      editor ? window.localStorage.removeItem(bodyEditorStoreId) : window.localStorage.removeItem(bodyStoreId);
     });
   }
 });
