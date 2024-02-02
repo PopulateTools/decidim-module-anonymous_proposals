@@ -29,6 +29,10 @@ module Decidim
             include Decidim::AnonymousProposals::HasAnonymous
           end
 
+          Decidim::Proposals::Proposal.class_eval do
+            include Decidim::AnonymousProposals::CoauthorableOverrides
+          end
+
           Decidim::Proposals::Permissions.class_eval do
             prepend Decidim::AnonymousProposals::PermissionsOverrides
           end
