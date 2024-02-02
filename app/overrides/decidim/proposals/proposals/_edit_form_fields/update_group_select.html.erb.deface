@@ -1,0 +1,12 @@
+<!-- replace "erb[silent]:contains('if current_organization.user_groups_enabled?')" -->
+
+<% if !is_anonymous? && current_organization.user_groups_enabled? && Decidim::UserGroups::ManageableUserGroups.for(current_user).verified.any? %>
+  <% if @proposal.new_record? %>
+    <div class="field">
+      <%= user_group_with_anonymous_select_field form, :user_group_id %>
+    </div>
+  <% else %>
+    <div class="field">
+      <%= user_group_select_field form, :user_group_id %>
+    </div>
+  <% end %>
