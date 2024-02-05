@@ -8,10 +8,13 @@ module Decidim
       included do
         def add_coauthor(author, extra_attributes = {})
           return if author.blank? && persisted?
-
-          author = anonymous_group if author.blank? && allow_anonymous_proposals?
-
           user_group = extra_attributes[:user_group]
+
+          if allow_anonymous_proposals? && (author.blank? || user_group == anonymous_group)
+            author = anonymous_group
+            user_group = nil
+            extra_attributes.delete(:user_group)
+          end
 
           return if coauthorships.exists?(decidim_author_id: author.id, decidim_author_type: author.class.base_class.name) && user_group.blank?
           return if user_group && coauthorships.exists?(user_group: user_group)
