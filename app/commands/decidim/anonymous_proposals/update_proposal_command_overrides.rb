@@ -13,7 +13,8 @@ module Decidim
         @selected_user_group = Decidim::UserGroup.find_by(organization: organization, id: form.user_group_id)
         @proposal = proposal
         @attached_to = proposal
-        @is_anonymous = allow_anonymous_proposals? && (current_user.blank? || proposal.authored_by?(anonymous_group))
+        @editable = allow_anonymous_proposals? && proposal.authored_by?(anonymous_group) || proposal.editable_by?(current_user)
+        @is_anonymous = allow_anonymous_proposals? && (current_user.blank? || (proposal.published? ? proposal.authored_by?(anonymous_group) : @selected_user_group == anonymous_group))
         set_current_user(current_user)
       end
 
@@ -21,6 +22,10 @@ module Decidim
 
       def component
         @component ||= form.current_component
+      end
+
+      def invalid?
+        !@editable || form.invalid? || proposal_limit_reached?
       end
     end
   end
