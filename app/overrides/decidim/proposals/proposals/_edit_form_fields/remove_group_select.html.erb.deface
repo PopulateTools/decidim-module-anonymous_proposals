@@ -1,3 +1,1 @@
-<!-- replace "erb[silent]:contains('if current_organization.user_groups_enabled?')" -->
-
-<% if !is_anonymous? && current_organization.user_groups_enabled? && Decidim::UserGroups::ManageableUserGroups.for(current_user).verified.any? %>
+<!-- remove "erb[loud]:contains('user_group_select_field form, :user_group_id')" -->
