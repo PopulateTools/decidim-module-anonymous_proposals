@@ -1,4 +1,4 @@
-<!-- insert_before "h2" -->
-<% if [:step_1, :step_3].include?(@step) %>
+<!-- insert_before "erb[loud]:contains('decidim_form_for(@form')" -->
+<% if @step == :step_1 %>
   <%= render partial: "decidim/anonymous_proposals/shared/anonymous_proposals_new_announcement" %>
 <% end %>
