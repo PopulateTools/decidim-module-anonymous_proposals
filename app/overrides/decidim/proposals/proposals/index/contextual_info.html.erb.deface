@@ -1,2 +1,2 @@
-<!-- insert_before "div.row.columns" -->
+<!-- insert_before "#proposals" -->
 <%= render partial: "decidim/anonymous_proposals/shared/anonymous_proposals_announcement" %>
