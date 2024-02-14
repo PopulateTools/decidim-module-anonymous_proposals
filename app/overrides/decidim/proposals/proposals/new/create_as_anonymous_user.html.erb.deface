@@ -1,4 +1,4 @@
-<!-- insert_before "div.card div.actions" -->
+<!-- insert_before "div.form__wrapper-block" -->
 
 <div class="form__wrapper">
   <%= user_group_with_anonymous_select_field form, :user_group_id %>
