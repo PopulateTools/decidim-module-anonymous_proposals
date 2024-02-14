@@ -61,6 +61,10 @@ module Decidim
           Decidim::Proposals::PublishProposal.class_eval do
             prepend Decidim::AnonymousProposals::PublishProposalCommandOverrides
           end
+
+          Decidim::Proposals::DestroyProposal.class_eval do
+            prepend Decidim::AnonymousProposals::PublishProposalCommandOverrides
+          end
         end
       end
     end
