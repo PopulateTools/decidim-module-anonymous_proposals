@@ -1,3 +1,4 @@
+<%= javascript_pack_tag "decidim_anonymous_proposals" %>
 <% unless user_signed_in? %>
   <%= cell(
     "decidim/announcement",
@@ -8,3 +9,8 @@
     )
   ) %>
 <% end %>
+
+<script>
+  window.DecidimAnonymousProposals = {};
+  window.DecidimAnonymousProposals.currentComponentId = "<%= current_component.id %>";
+</script>

@@ -19,7 +19,7 @@ module Decidim
       initializer "decidim_anonymous_proposals.proposal_component_settings" do
         component = Decidim.find_component_manifest(:proposals)
         component.settings(:global) do |settings|
-          settings.attribute :anonymous_proposals_enabled, type: :boolean, default: true
+          settings.attribute :anonymous_proposals_enabled, type: :boolean, default: false
         end
       end
 
@@ -29,8 +29,16 @@ module Decidim
             include Decidim::AnonymousProposals::HasAnonymous
           end
 
+          Decidim::Proposals::Proposal.class_eval do
+            include Decidim::AnonymousProposals::CoauthorableOverrides
+          end
+
           Decidim::Proposals::Permissions.class_eval do
             prepend Decidim::AnonymousProposals::PermissionsOverrides
+          end
+
+          Decidim::Proposals::ProposalsHelper.class_eval do
+            include Decidim::AnonymousProposals::UserGroupHelper
           end
 
           Decidim::Proposals::ProposalsController.class_eval do
@@ -51,6 +59,10 @@ module Decidim
           end
 
           Decidim::Proposals::PublishProposal.class_eval do
+            prepend Decidim::AnonymousProposals::PublishProposalCommandOverrides
+          end
+
+          Decidim::Proposals::DestroyProposal.class_eval do
             prepend Decidim::AnonymousProposals::PublishProposalCommandOverrides
           end
         end

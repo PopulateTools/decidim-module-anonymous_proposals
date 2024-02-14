@@ -1,0 +1,5 @@
+<!-- insert_before "div.card div.actions" -->
+
+<div class="field">
+  <%= user_group_with_anonymous_select_field form, :user_group_id %>
+</div>

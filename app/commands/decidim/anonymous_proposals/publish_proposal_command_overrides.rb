@@ -6,20 +6,18 @@ module Decidim
     module PublishProposalCommandOverrides
       extend ActiveSupport::Concern
 
+      include Decidim::AnonymousProposals::AnonymousBehaviorCommandsConcern
+
       def initialize(proposal, current_user)
         @proposal = proposal
-        @current_user = current_user
-        @current_user ||= anonymous_group if allow_anonymous_proposals?
+        @is_anonymous = allow_anonymous_proposals? && (current_user.blank? || proposal.authored_by?(anonymous_group))
+        set_current_user(current_user)
       end
 
       private
 
-      def anonymous_group
-        Decidim::UserGroup.where(organization: @proposal.organization).anonymous.first
-      end
-
-      def allow_anonymous_proposals?
-        @proposal.component.settings.anonymous_proposals_enabled?
+      def component
+        @component ||= @proposal.component
       end
     end
   end
