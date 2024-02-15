@@ -17,15 +17,15 @@ $(() => {
   } else {
     const $title = $form.find("#proposal_title");
     const $body = $form.find("#proposal_body");
-    const editorContainer = document.querySelector(".editor-container");
-    const editor = editorContainer ? Quill.find(editorContainer) : null;
+    const $editorBody = $form.find(".tiptap.ProseMirror");
+    const editor = $editorBody.length > 0
 
     const titleStored = window.localStorage.getItem(titleStoreId);
     const bodyStored = editor ? window.localStorage.getItem(bodyEditorStoreId) : window.localStorage.getItem(bodyStoreId);
 
     const save = () => {
       const titleVal = $title.val();
-      const bodyVal = editor ? JSON.stringify(editor.getContents()) : $body.val();
+      const bodyVal = editor ? $editorBody.html() : $body.val();
 
       if (titleVal.length > 0) {
         window.localStorage.setItem(titleStoreId, titleVal);
@@ -43,7 +43,7 @@ $(() => {
     }
 
     if(bodyStored) {
-      editor ? editor.setContents(JSON.parse(bodyStored)) : $body.val(bodyStored);
+      editor ? $editorBody.html(bodyStored) : $body.val(bodyStored);
     } else {
       save();
     }
@@ -53,7 +53,7 @@ $(() => {
     });
 
     if (editor) {
-      editor.on(Quill.events.TEXT_CHANGE, (delta, source) => {
+      $editorBody.on("input", () => {
         save();
       });
     }  else {
